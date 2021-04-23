@@ -1,0 +1,27 @@
+
+.nav{
+  grid-area:n;
+  background-color: #333333;
+ border: 1px solid #006699;
+
+ 
+}
+
+.nav div:hover{
+  background-color:rgb(32,32,32);
+  color:black;
+}
+.nav div:active{
+  background-color:#000033;
+}
+.nav a {
+  padding:20px;
+  color: #808080;
+  text-decoration:none
+}
+.nav a:active {color: #006699}
+.nav a:hover {color: #006699}
+.item a {
+  color:white;
+}
+.item a:active{ color:red;};

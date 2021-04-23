@@ -1,0 +1,14 @@
+.header{
+  grid-area:h;
+  background-color:  #1a1a1a;
+  width:100%;
+  color:   royalblue
+  
+}
+.header img{
+  width:50px;
+}
+.item{
+  color:white;
+}
+header a {color:gray}
