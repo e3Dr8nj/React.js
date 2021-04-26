@@ -1,4 +1,5 @@
 
+import {render} from '../render.jsx'
 let avapath = 'https://reactjs.e3dr8nj.repl.co/src/images/'
 let userid='0'
 function Member(obj){
@@ -13,7 +14,7 @@ function Member(obj){
 }
 
 
-let state1 =()=>{
+//let state1 =()=>{
 
 let state= {
   header:'this is header',
@@ -99,8 +100,15 @@ state.set.userid='0'
 //
  
  
-   return state
-}
+//   return state
+//}
 
   
-export default state1();
+export default state;
+
+export let  addPost=(message)=>{
+  
+
+ state.channels['0_0'].messages.push({id:'4',content:message.content,member:state.members['0']})
+ return render()
+}

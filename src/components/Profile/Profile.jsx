@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 let Profile=(props)=>{
+  let posts = props.posts.messages.map(e=>(<div>{e.content}</div>))
   let ref1 = React.createRef();
   let onClickFunction=()=>{
+    let msg = {content:ref1.current.value}
+    props.addPost(msg)
     alert(ref1.current.value)
   }
 console.log(props.posts.messages[0])
@@ -32,7 +35,7 @@ console.log(props.posts.messages[0])
   <div><button onClick={onClickFunction}>Add new post</button></div>
   <div className='post_wripper'>{props.posts.messages[0].content}</div>
   <div className='post_wripper'>{props.posts.messages[1].content}</div>
-
+{posts}
   </div>
   
   </div>)

@@ -24,7 +24,9 @@ let App =(props)=>{
     
      <Route path='/chat' render={()=>{return(<Chat state={props.state.chat} set={props.state.set} ></Chat>)} }/>
      <Route path='/dialogs' render={()=>{return(<Dialogs state={props.state.dialogs} members={props.state.members}  channels={props.state.channels} set={props.state.set} ></Dialogs>)}} />
-      <Route path='/profile' render={()=>{return(<Profile user={props.state.members['0']} posts={props.state.channels['0_0']} set={props.set}></Profile>)}} />
+      <Route path='/profile' render={()=>{return(<Profile user={props.state.members['0']} posts={props.state.channels['0_0']} set={props.set} addPost={props.addPost}
+      ></Profile>
+      )}} />
     </div>
     </div>
    
