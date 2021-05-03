@@ -31,7 +31,7 @@ console.log(props.posts.messages[0])
   <div className='posts_wripper'>
   
   <div>My Posts</div>
-  <div><textarea ref={ref1}></textarea></div>
+  <div><textarea ref={ref1} ></textarea></div>
   <div><button onClick={onClickFunction}>Add new post</button></div>
   <div className='post_wripper'>{props.posts.messages[0].content}</div>
   <div className='post_wripper'>{props.posts.messages[1].content}</div>
