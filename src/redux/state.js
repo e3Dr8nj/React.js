@@ -1,5 +1,7 @@
 
-import {render} from '../render.jsx'
+//import {render} from '../render.jsx'
+let render = ()=>{}
+export let subscribe=(observer)=>{render = observer}
 let avapath = 'https://reactjs.e3dr8nj.repl.co/src/images/'
 let userid='0'
 function Member(obj){
