@@ -111,14 +111,18 @@ export let  addPost=(message)=>{
   
 
  state.channels['0_0'].messages.push({id:'4',content:message.content,member:state.members['0']})
+ state.set.text=''
  return render()
 }
-
-
+export let changePost=(value)=>{
+  state.set.text=value
+  return render()
+}
+/*
 export let  addMessage=(message)=>{
   
 
  state.channels['0_0'].messages.push({id:'4',content:message.content,member:state.members['0']})
  return render()
 }
-
+*/

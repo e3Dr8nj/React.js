@@ -6,7 +6,12 @@ let Profile=(props)=>{
   let onClickFunction=()=>{
     let msg = {content:ref1.current.value}
     props.addPost(msg)
-    alert(ref1.current.value)
+    
+  }
+  let onChangeFunction=()=>{
+    
+    props.changePost(ref1.current.value)
+ // props.changePost(ref1)
   }
 console.log(props.posts.messages[0])
   let ProfileInfo=(props)=>{
@@ -31,7 +36,7 @@ console.log(props.posts.messages[0])
   <div className='posts_wripper'>
   
   <div>My Posts</div>
-  <div><textarea ref={ref1} ></textarea></div>
+  <div><textarea ref={ref1} value={props.set.text} onChange={onChangeFunction}  ></textarea></div>
   <div><button onClick={onClickFunction}>Add new post</button></div>
   <div className='post_wripper'>{props.posts.messages[0].content}</div>
   <div className='post_wripper'>{props.posts.messages[1].content}</div>
