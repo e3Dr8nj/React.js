@@ -17,20 +17,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import state from './redux/state.js'
 import App from './App';
-import state,{addPost,changePost,subscribe} from './redux/state.js'
+import state,{store,addPost,changePost,subscribe} from './redux/state.js'
 import {BrowserRouter} from 'react-router-dom'
 //import {addPost} from './redux/state.js'
 //import {render} from './render.jsx'
 //import * as serviceWorker from './serviceWorker';
 //import state from './state'
 let render=()=>{
+  debugger
 ReactDOM.render(
+  
    <BrowserRouter>
-  <App state = {state} addPost = {addPost} changePost={changePost}/>
+  <App state = {store.getState(store)} addPost = {store.addPost.bind(store)} changePost={store.changePost.bind(store)}/>
    </BrowserRouter>, document.getElementById('root')
   )
 }
-subscribe(render)
+store.subscribe(render)
 
 
 render()

@@ -128,3 +128,20 @@ export let  addMessage=(message)=>{
  return render()
 }
 */
+//--------------
+export let store={
+  _state:state
+  ,getState(){return this._state}
+  ,_render(){}
+  ,subscribe(observer){return this._render = observer}
+  ,addPost(message){
+    this._state.channels['0_0'].messages.push({id:'4',content:message.content,member:this._state.members['0']})
+ this._state.set.text=''
+ return this._render()
+    }
+    ,changePost(value){
+      this._state.set.text=value
+      return this._render()
+    }
+    
+}
