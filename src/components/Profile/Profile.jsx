@@ -3,14 +3,18 @@ import ReactDom from 'react-dom'
 let Profile=(props)=>{
   let posts = props.posts.messages.map(e=>(<div>{e.content}</div>))
   let ref1 = React.createRef();
-  let onClickFunction=()=>{
+  let addPost=()=>{
+    
     let msg = {content:ref1.current.value}
-    props.addPost(msg)
+    //props.addPost(msg)
+    
+    props.dispatch({type:'ADD_POST',message:msg})
     
   }
-  let onChangeFunction=()=>{
+  let changePost=()=>{
     
-    props.changePost(ref1.current.value)
+   // props.changePost(ref1.current.value)
+    props.dispatch({type:'CHANGE_POST',value:ref1.current.value})
  // props.changePost(ref1)
   }
 console.log(props.posts.messages[0])
@@ -36,8 +40,8 @@ console.log(props.posts.messages[0])
   <div className='posts_wripper'>
   
   <div>My Posts</div>
-  <div><textarea ref={ref1} value={props.set.text} onChange={onChangeFunction}  ></textarea></div>
-  <div><button onClick={onClickFunction}>Add new post</button></div>
+  <div><textarea ref={ref1} value={props.set.text} onChange={changePost}  ></textarea></div>
+  <div><button onClick={addPost}>Add new post</button></div>
   <div className='post_wripper'>{props.posts.messages[0].content}</div>
   <div className='post_wripper'>{props.posts.messages[1].content}</div>
 {posts}

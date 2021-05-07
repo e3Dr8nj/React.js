@@ -143,5 +143,15 @@ export let store={
       this._state.set.text=value
       return this._render()
     }
+    ,dispatch(action){
+      if(action.type=='ADD_POST'){ 
+         this._state.channels['0_0'].messages.push({id:'4',content:action.message.content,member:this._state.members['0']})
+       this._state.set.text=''
+       return this._render()
+        }else if(action.type=='CHANGE_POST'){
+          this._state.set.text=action.value
+      return this._render()
+        }
+    }
     
 }
