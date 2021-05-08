@@ -17,7 +17,12 @@ function Member(obj){
 
 
 //let state1 =()=>{
-
+//_________________
+const ADD_POST = 'ADD_POST'
+const CHANGE_POST = 'CHANGE_POST'
+export const AddPostActionCreator =(msg)=>({type:ADD_POST,message:msg})
+export const ChangePostActionCreator =(text)=>({type:CHANGE_POST,value:text})
+//_____________________
 let state= {
   header:'this is header',
   navbar:[

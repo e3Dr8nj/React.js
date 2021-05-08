@@ -17,7 +17,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import state from './redux/state.js'
 import App from './App';
-import state,{store,addPost,changePost,subscribe} from './redux/state.js'
+import state,{store,addPost,changePost,subscribe,AddPostActionCreator,ChangePostActionCreator} from './redux/state.js'
 import {BrowserRouter} from 'react-router-dom'
 //import {addPost} from './redux/state.js'
 //import {render} from './render.jsx'
@@ -28,7 +28,7 @@ let render=()=>{
 ReactDOM.render(
   
    <BrowserRouter>
-  <App state = {store.getState(store)} dispatch={store.dispatch.bind(store)} addPost = {store.addPost.bind(store)} changePost={store.changePost.bind(store)}/>
+  <App state = {store.getState(store)} dispatch={store.dispatch.bind(store)} addPost = {store.addPost.bind(store)} changePost={store.changePost.bind(store)}  AddPostActionCreator={AddPostActionCreator} ChangePostActionCreator={ChangePostActionCreator}     />
    </BrowserRouter>, document.getElementById('root')
   )
 }

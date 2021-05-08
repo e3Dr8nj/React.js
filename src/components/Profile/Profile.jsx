@@ -3,19 +3,26 @@ import ReactDom from 'react-dom'
 let Profile=(props)=>{
   let posts = props.posts.messages.map(e=>(<div>{e.content}</div>))
   let ref1 = React.createRef();
+  const AddPostActionCreator=(msg)=>({type:'ADD_POST',message:msg})
+  const ChangePostActionCreator=(text)=>({
+    type:'CHANGE_POST',value:text
+  })
   let addPost=()=>{
     
     let msg = {content:ref1.current.value}
     //props.addPost(msg)
     
-    props.dispatch({type:'ADD_POST',message:msg})
+    //props.dispatch({type:'ADD_POST',message:msg})
+    props.dispatch(props.AddPostActionCreator(msg))
     
   }
   let changePost=()=>{
     
    // props.changePost(ref1.current.value)
-    props.dispatch({type:'CHANGE_POST',value:ref1.current.value})
+  //  props.dispatch({type:'CHANGE_POST',value:ref1.current.value})
  // props.changePost(ref1)
+ props.dispatch(props.ChangePostActionCreator(ref1.current.value))
+
   }
 console.log(props.posts.messages[0])
   let ProfileInfo=(props)=>{

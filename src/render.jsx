@@ -4,7 +4,7 @@ import './index.css';
 import state from './redux/state.js'
 import App from './App';
 import {BrowserRouter} from 'react-router-dom'
-import {addPost,changePost} from './redux/state.js'
+import {addPost,changePost,addPostActionCreator, changePostActionCreator} from './redux/state.js'
 //import * as serviceWorker from './serviceWorker';
 //import state from './state'
 
