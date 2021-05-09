@@ -20,7 +20,7 @@ function Member(obj){
 //_________________
 const ADD_POST = 'ADD_POST'
 const CHANGE_POST = 'CHANGE_POST'
-export const AddPostActionCreator =(msg)=>({type:ADD_POST,message:msg})
+export const AddPostActionCreator =(msg,channelID,userID)=>({type:ADD_POST,message:msg,channelID:channelID, userID:userID})
 export const ChangePostActionCreator =(text)=>({type:CHANGE_POST,value:text})
 //_____________________
 let state= {
@@ -125,14 +125,18 @@ export let changePost=(value)=>{
   state.set.text=value
   return render()
 }
-/*
-export let  addMessage=(message)=>{
-  
 
- state.channels['0_0'].messages.push({id:'4',content:message.content,member:state.members['0']})
+export let  addMessage=(message)=>{
+  //=>channelID, content, userID
+ 
+ let len= state.channels[message.channelID].messages.length
+ let last = state.channels[message.channelID].messages[len-1].id
+ last+=1
+ state.channels[message.channelID].messages.push({id:last,content:message.content+" "+last,member:state.members[action.message.userID]})
+ state.set.text=''
  return render()
 }
-*/
+
 //--------------
 export let store={
   _state:state
@@ -149,11 +153,20 @@ export let store={
       return this._render()
     }
     ,dispatch(action){
-      if(action.type=='ADD_POST'){ 
-         this._state.channels['0_0'].messages.push({id:'4',content:action.message.content,member:this._state.members['0']})
+      if(action.type==ADD_POST){ 
+        //
+         let channelID = action.message.channelID
+         let userID = '0'
+         let len= this._state.channels[channelID].messages.length
+ let last =Number(this._state.channels[channelID].messages[len-1].id)
+ last+=1
+ this._state.channels[channelID].messages.push({id:last,content:action.message.content+" "+last,member:this._state.members[userID]})
+ /*
+         this._state.channels[action.message.channelID].messages.push({id:'4',content:action.message.content,member:this._state.members['0']})
+         */
        this._state.set.text=''
        return this._render()
-        }else if(action.type=='CHANGE_POST'){
+        }else if(action.type==CHANGE_POST){
           this._state.set.text=action.value
       return this._render()
         }

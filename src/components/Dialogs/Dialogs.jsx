@@ -4,13 +4,15 @@ import s from './Dialogs.module.css'
 import Message from '../Message/Message.jsx'
 import UserList from './UserList/UserList.jsx'
 import {BrowserRouter,Route,NavLink} from 'react-router-dom'
+import InputMessageField from '../InputMessageField/InputMessageField.jsx'
 let MsgRoute=[]
+
  let Dialogs =(props)=>{ 
    let props1=props;
   
    let MessageElements =(channel)=> channel.messages.map(m=>{
    return(<Message key={m.id} state={m} set={props.set}/>)})//MessageElements
-function f(logid){
+function renderDialogPage(logid){
   
   return(
   <div> 
@@ -22,7 +24,9 @@ let UserList1 =(props)=>{
  
  let dialogsUserList = Object.entries(props.members).map(([i,e,props])=>{
    console.log(e)
-    MsgRoute.push(<Route path={e.path} render={()=>{return f(e.logid) }}/>)
+    MsgRoute.push(<Route path={e.path} render={()=>{
+     // props.set.channel=e.logid
+      return renderDialogPage(e.logid) }}/>)
     
     return(<div key={i} className='list'>
     <img src={e.ava} />
@@ -49,7 +53,7 @@ return (<nav className='list'>
   <div>
 {MsgRoute}
 
-  
+  <InputMessageField addPost = {props.addPost} changePost={props.changePost} AddPostActionCreator={props.AddPostActionCreator} ChangePostActionCreator={props.ChangePostActionCreator}/>
   </div>
   </div>
   </BrowserRouter>

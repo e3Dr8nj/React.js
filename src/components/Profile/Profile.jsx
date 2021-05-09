@@ -9,7 +9,7 @@ let Profile=(props)=>{
   })
   let addPost=()=>{
     
-    let msg = {content:ref1.current.value}
+    let msg = {content:ref1.current.value,channelID:'0_0',userID:'0'}
     //props.addPost(msg)
     
     //props.dispatch({type:'ADD_POST',message:msg})
@@ -21,7 +21,7 @@ let Profile=(props)=>{
    // props.changePost(ref1.current.value)
   //  props.dispatch({type:'CHANGE_POST',value:ref1.current.value})
  // props.changePost(ref1)
- props.dispatch(props.ChangePostActionCreator(ref1.current.value))
+ props.dispatch(props.ChangePostActionCreator(ref1.current.value,'0_0','0'))
 
   }
 console.log(props.posts.messages[0])
