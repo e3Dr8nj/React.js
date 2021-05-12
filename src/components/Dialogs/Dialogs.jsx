@@ -6,7 +6,7 @@ import UserList from './UserList/UserList.jsx'
 import {BrowserRouter,Route,NavLink} from 'react-router-dom'
 import InputMessageField from '../InputMessageField/InputMessageField.jsx'
 let MsgRoute=[]
-
+let channel=''
  let Dialogs =(props)=>{ 
    let props1=props;
   
@@ -23,9 +23,9 @@ function renderDialogPage(logid){
 let UserList1 =(props)=>{
  
  let dialogsUserList = Object.entries(props.members).map(([i,e,props])=>{
-   console.log(e)
+   console.log(props)
     MsgRoute.push(<Route path={e.path} render={()=>{
-     // props.set.channel=e.logid
+     
       return renderDialogPage(e.logid) }}/>)
     
     return(<div key={i} className='list'>
@@ -53,7 +53,7 @@ return (<nav className='list'>
   <div>
 {MsgRoute}
 
-  <InputMessageField addPost = {props.addPost} changePost={props.changePost} AddPostActionCreator={props.AddPostActionCreator} ChangePostActionCreator={props.ChangePostActionCreator}/>
+  <InputMessageField addPost = {props.addPost} changePost={props.changePost} AddPostActionCreator={props.AddPostActionCreator} ChangePostActionCreator={props.ChangePostActionCreator} ch='0_1' store={props.store}/>
   </div>
   </div>
   </BrowserRouter>

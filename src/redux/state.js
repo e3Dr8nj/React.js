@@ -105,6 +105,7 @@ state.set={}
 state.set.disign='messenger'//compact/messenger
 state.set.userid='0'
 state.set.text=''
+state.set.channelid=''
 //
  
  
@@ -173,3 +174,4 @@ export let store={
     }
     
 }
+window.store=store
