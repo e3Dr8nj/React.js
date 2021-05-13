@@ -8,10 +8,19 @@ let InputMessageField=(props)=>{
     console.log(props)
  // alert(props.ch)
   props.store._state.set.text=ref1.current.value
-  props.store._render()
+ // props.store._render()
   alert(props.store._state.set.text)
+  let channel = props.store._state.channels['0_0']
+  let member = props.store._state.members['0']
+  channel.messages.push({
+    content:props.store._state.set.text
+    ,id:channel.messages.length+1
+    ,member:member
+   // ,member:
+  })
   ref1.current.value=''
   props.store._state.set.text=''
+  props.store._render()
  }
  let onChange=()=>{
 
