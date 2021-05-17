@@ -155,13 +155,16 @@ export let store={
     }
     ,dispatch(action){
       if(action.type==ADD_POST){ 
-        //
-         let channelID = action.message.channelID
-         let userID = '0'
-         let len= this._state.channels[channelID].messages.length
- let last =Number(this._state.channels[channelID].messages[len-1].id)
+        //action:{type,channelID,userID}
+        
+         let channelID = action.channelID
+         let userID = action.userID
+         let channel=this._state.channels[channelID]
+         let len= channel.messages.length
+         let member = this._state.members[userID]
+ let last =Number(channel.messages[len-1].id)
  last+=1
- this._state.channels[channelID].messages.push({id:last,content:action.message.content+" "+last,member:this._state.members[userID]})
+channel.messages.push({id:last,content:action.message.content+" "+last,member:member})
  /*
          this._state.channels[action.message.channelID].messages.push({id:'4',content:action.message.content,member:this._state.members['0']})
          */
