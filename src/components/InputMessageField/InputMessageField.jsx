@@ -24,9 +24,16 @@ let InputMessageField=(props)=>{
   props.store._state.set.text=''
   props.store._render()
  }//\addMessage
+ let messageActionCreator=(channelID,userID,content)=>{ 
+  return {type:'ADD_POST',channelID:channelID,userID:userID,message:{content:content}}
+ }
  let addMessage=()=>{
-   //console.log('add')
- //  props.store.dispatch({type:'ADD_MESSAGE',//channelID:'0_0',userID:'0'})
+   console.log('add')
+   let dispatch=props.store.dispatch.bind(props.store)
+   let userID='0'
+   let channelID='0_2'
+ let messageAction=props.store.messageActionCreator.bind(props.store)(channelID,userID,ref1.current.value)
+  dispatch(messageAction)
  }
  let onChange=()=>{
  props.store._state.set.text=ref1.current.value
@@ -36,7 +43,7 @@ let InputMessageField=(props)=>{
   <div className='bottom-fixed'>
   <span><textarea ref={ref1} width='70%' rows='1' 
   onChange={onChange} value={props.store._state.set.text} /></span>
-  <span><button onClick={addMessage1}>Send</button></span>
+  <span><button onClick={addMessage}>Send</button></span>
   </div>
 )}
 

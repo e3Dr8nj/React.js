@@ -28,7 +28,7 @@ let render=()=>{
 ReactDOM.render(
   
    <BrowserRouter>
-  <App state = {store.getState(store)} dispatch={store.dispatch.bind(store)} addPost = {store.addPost.bind(store)} changePost={store.changePost.bind(store)}  AddPostActionCreator={AddPostActionCreator} ChangePostActionCreator={ChangePostActionCreator}   store={store}  />
+  <App state = {store.getState.bind(store)(store)} dispatch={store.dispatch.bind(store)} addPost = {store.addPost.bind(store)} changePost={store.changePost.bind(store)}  AddPostActionCreator={AddPostActionCreator} ChangePostActionCreator={ChangePostActionCreator}   store={store}  />
    </BrowserRouter>, document.getElementById('root')
   )
 }
