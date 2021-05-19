@@ -22,10 +22,11 @@ function renderDialogPage(logid){
   )}
 let UserList1 =(props)=>{
  
- let dialogsUserList = Object.entries(props.members).map(([i,e,props])=>{
+ let dialogsUserList = Object.entries(props.members).map(([i,e])=>{
    console.log(props)
     MsgRoute.push(<Route path={e.path} render={()=>{
-     
+      props.store._state.set.current_channel=e.logid
+      //alert(props.store._state.set.current_channel)
       return renderDialogPage(e.logid) }}/>)
     
     return(<div key={i} className='list'>
@@ -48,7 +49,7 @@ return (<nav className='list'>
   <BrowserRouter>
   <div className={s.dialogs}>
   
- <UserList1  members={props.members}/>
+ <UserList1  members={props.members} store={props.store}/>
 
   <div>
 {MsgRoute}

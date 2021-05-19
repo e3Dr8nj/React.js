@@ -108,6 +108,7 @@ state.set.disign='messenger'//compact/messenger
 state.set.userid='0'
 state.set.text=''
 state.set.channelid=''
+state.set.current_channel='0_0'
 //
  
  
@@ -159,7 +160,7 @@ export let store={
       if(action.type==ADD_MESSAGE){ 
         //action:{type,channelID,userID}
        
-         let channelID = action.channelID
+         let channelID = this._state.set.current_channel
          let userID = this._state.set.userid
          let channel=this._state.channels[channelID]
          //console.log(channel)
@@ -182,7 +183,7 @@ console.log(channel)
     }
     
 }
-store.messageActionCreator=(channelID,content)=>{ 
-  return {type:ADD_MESSAGE ,channelID:channelID,message:{content:content}}
+store.messageActionCreator=(content)=>{ 
+  return {type:ADD_MESSAGE ,message:{content:content}}
  }
 window.store=store
