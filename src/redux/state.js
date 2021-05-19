@@ -20,6 +20,7 @@ function Member(obj){
 //_________________
 const ADD_POST = 'ADD_POST'
 const CHANGE_POST = 'CHANGE_POST'
+const ADD_MESSAGE='ADD_MESSAGE'
 
 export const AddPostActionCreator =(msg,channelID,userID)=>({type:ADD_POST,message:msg,channelID:channelID, userID:userID})
 export const ChangePostActionCreator =(text)=>({type:CHANGE_POST,value:text})
@@ -155,11 +156,11 @@ export let store={
       return this._render()
     }
     ,dispatch(action){
-      if(action.type==ADD_POST){ 
+      if(action.type==ADD_MESSAGE){ 
         //action:{type,channelID,userID}
        
          let channelID = action.channelID
-         let userID = action.userID
+         let userID = this._state.set.userid
          let channel=this._state.channels[channelID]
          //console.log(channel)
          let len= channel.messages.length
@@ -181,7 +182,7 @@ console.log(channel)
     }
     
 }
-store.messageActionCreator=(channelID,userID,content)=>{ 
-  return {type:ADD_POST ,channelID:channelID,userID:userID,message:{content:content}}
+store.messageActionCreator=(channelID,content)=>{ 
+  return {type:ADD_MESSAGE ,channelID:channelID,message:{content:content}}
  }
 window.store=store

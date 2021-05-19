@@ -32,7 +32,7 @@ let InputMessageField=(props)=>{
    let dispatch=props.store.dispatch.bind(props.store)
    let userID='0'
    let channelID='0_2'
- let messageAction=props.store.messageActionCreator.bind(props.store)(channelID,userID,ref1.current.value)
+ let messageAction=props.store.messageActionCreator.bind(props.store)(channelID,ref1.current.value)
   dispatch(messageAction)
  }
  let onChange=()=>{

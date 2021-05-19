@@ -34,5 +34,6 @@ ReactDOM.render(
 }
 store.subscribe(render)
 
-
+try{
 render()
+}catch(e){console.log(e)}
