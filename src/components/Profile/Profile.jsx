@@ -9,11 +9,11 @@ let Profile=(props)=>{
   })
   let addPost=()=>{
     
-    let msg = {content:ref1.current.value,channelID:'0_0',userID:'0'}
+    let msg = {content:ref1.current.value}
     //props.addPost(msg)
-    
-    //props.dispatch({type:'ADD_POST',message:msg})
-    props.dispatch(props.AddPostActionCreator(msg))
+    props.store._state.set.current_channel='0_0'
+    props.dispatch({type:'ADD_MESSAGE',message:msg})
+    //props.dispatch(props.AddPostActionCreator(msg))
     
   }
   let changePost=()=>{
