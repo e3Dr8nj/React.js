@@ -189,6 +189,6 @@ console.log(channel)
     
 }
 store.messageActionCreator=(content)=>{ 
-  return {type:ADD_MESSAGE ,message:{content:content}}
+  return {type:ADD_MESSAGE ,content:content}
  }
 window.store=store
