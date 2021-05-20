@@ -23,7 +23,7 @@ let Message =(props)=>{
   let Choiser=(props)=>{
 
    
-    return  (d.[props.set.disign](props))
+    return  (d[props.set.disign](props))
     }
  if(!props.state.member.color) {props.state.memeber.color='#000000'}
  

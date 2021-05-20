@@ -1,5 +1,6 @@
 
 //import {render} from '../render.jsx'
+import addMessageReducer from './addMessageReducer.js'
 let render=()=>{}
 export let subscribe=(observer)=>{render = observer}
 let avapath = 'https://reactjs.e3dr8nj.repl.co/src/images/'
@@ -157,7 +158,10 @@ export let store={
       return this._render()
     }
     ,dispatch(action){
+      this._state.channels=addMessageReducer(this,this._state.channels,action)
+      
       if(action.type==ADD_MESSAGE){ 
+        /*
         //action:{type,channelID,userID}
        
          let channelID = this._state.set.current_channel
@@ -170,16 +174,17 @@ export let store={
  last+=1
 channel.messages.push({id:last,content:action.message.content+" "+last,member:member})
 console.log(channel)
- /*
-         this._state.channels[action.message.channelID].messages.push({id:'4',content:action.message.content,member:this._state.members['0']})
-         */
+
        this._state.set.text=''
        console.log(this._store)
+       */
        return this._render()
+       
         }else if(action.type==CHANGE_POST){
           this._state.set.text=action.value
       return this._render()
         }
+        
     }
     
 }
