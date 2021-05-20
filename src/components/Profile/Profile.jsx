@@ -12,7 +12,7 @@ let Profile=(props)=>{
     let msg = {content:ref1.current.value}
     //props.addPost(msg)
     props.store._state.set.current_channel='0_0'
-    props.dispatch({type:'ADD_MESSAGE',message:msg})
+    props.dispatch({type:'ADD_MESSAGE',content:ref1.current.value})
     //props.dispatch(props.AddPostActionCreator(msg))
     
   }
@@ -21,7 +21,8 @@ let Profile=(props)=>{
    // props.changePost(ref1.current.value)
   //  props.dispatch({type:'CHANGE_POST',value:ref1.current.value})
  // props.changePost(ref1)
- props.dispatch(props.ChangePostActionCreator(ref1.current.value,'0_0','0'))
+ props.store._state.set.text=ref1.current.value
+ props.store._render()
 
   }
 console.log(props.posts.messages[0])

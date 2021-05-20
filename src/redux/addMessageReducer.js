@@ -1,11 +1,13 @@
+
 const ADD_MESSAGE = 'ADD_MESSAGE'
 const TEXT_VALUE_CHANGED='TEXT VALUE CHANGED'
-let onMessageAddActionCreator=(value)=>({
+export let onMessageAddActionCreator=(value)=>({
   type:ADD_MESSAGE,content:value
 })
 let addMessageReducer =(store,state,action)=>{
  // alert(action.type)
-  if(action.type===ADD_MESSAGE) {
+  switch (action.type){
+   case ADD_MESSAGE:
     //change state
       //define channelid
       let channel_id=store._state.set.current_channel
@@ -21,6 +23,10 @@ let addMessageReducer =(store,state,action)=>{
 
     //null value
   return state
-  }
+  case TEXT_VALUE_CHANGED:
+  store._state.set.text=action.value
+  return state
+  }//\switch
+  
 }
 export default addMessageReducer

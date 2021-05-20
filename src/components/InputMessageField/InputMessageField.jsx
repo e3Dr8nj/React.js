@@ -1,3 +1,4 @@
+import {onMessageAddActionCreator} from '/home/runner/Reactjs/src/redux/addMessageReducer.js'
 import React from 'react'
 import ReactDom from 'react-dom'
 
@@ -9,7 +10,8 @@ let InputMessageField=(props)=>{
    let dispatch=props.store.dispatch.bind(props.store)
    
    let channelID='0_2'
- let messageAction=props.store.messageActionCreator.bind(props.store)(ref1.current.value)
+   
+let messageAction = onMessageAddActionCreator(ref1.current.value)
   dispatch(messageAction)
  }
  let onChange=()=>{
