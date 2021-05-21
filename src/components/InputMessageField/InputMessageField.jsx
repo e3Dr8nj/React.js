@@ -1,4 +1,4 @@
-import {onMessageAddActionCreator} from '/home/runner/Reactjs/src/redux/addMessageReducer.js'
+import {onMessageAddActionCreator,onTextValueChanged} from '/home/runner/Reactjs/src/redux/addMessageReducer.js'
 import React from 'react'
 import ReactDom from 'react-dom'
 
@@ -15,8 +15,10 @@ let messageAction = onMessageAddActionCreator(ref1.current.value)
   dispatch(messageAction)
  }
  let onChange=()=>{
- props.store._state.set.text=ref1.current.value
- props.store._render()
+
+let action = onTextValueChanged(ref1.current.value)
+props.store.dispatch.bind(props.store)(action)
+
  }
    return(
   <div className='bottom-fixed'>

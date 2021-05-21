@@ -19,12 +19,13 @@ function Member(obj){
 
 //let state1 =()=>{
 //_________________
-const ADD_POST = 'ADD_POST'
-const CHANGE_POST = 'CHANGE_POST'
-const ADD_MESSAGE='ADD_MESSAGE'
-
+//const ADD_POST = 'ADD_POST'
+//const CHANGE_POST = 'CHANGE_POST'
+//const ADD_MESSAGE='ADD_MESSAGE'
+/*
 export const AddPostActionCreator =(msg,channelID,userID)=>({type:ADD_POST,message:msg,channelID:channelID, userID:userID})
 export const ChangePostActionCreator =(text)=>({type:CHANGE_POST,value:text})
+*/
 //_____________________
 let state= {
   header:'this is header',
@@ -159,36 +160,13 @@ export let store={
     }
     ,dispatch(action){
       this._state.channels=addMessageReducer(this,this._state.channels,action)
-      
-      if(action.type==ADD_MESSAGE){ 
-        /*
-        //action:{type,channelID,userID}
-       
-         let channelID = this._state.set.current_channel
-         let userID = this._state.set.userid
-         let channel=this._state.channels[channelID]
-         //console.log(channel)
-         let len= channel.messages.length
-         let member = this._state.members[userID]
- let last =Number(channel.messages[len-1].id)
- last+=1
-channel.messages.push({id:last,content:action.message.content+" "+last,member:member})
-console.log(channel)
-
-       this._state.set.text=''
-       console.log(this._store)
-       */
-       return this._render()
-       
-        }else if(action.type==CHANGE_POST){
-          this._state.set.text=action.value
       return this._render()
-        }
-        
-    }
+  }
     
 }
+/*
 store.messageActionCreator=(content)=>{ 
   return {type:ADD_MESSAGE ,content:content}
  }
+ */
 window.store=store
