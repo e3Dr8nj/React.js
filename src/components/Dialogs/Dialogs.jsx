@@ -49,12 +49,13 @@ return (<nav className='list'>
   <BrowserRouter>
   <div className={s.dialogs}>
   
- <UserList1  members={props.members} store={props.store}/>
+ <UserList1  members={props.members} store={props.store} store_redux={props.store_redux}/>
 
   <div>
 {MsgRoute}
 
-  <InputMessageField addPost = {props.addPost} changePost={props.changePost} AddPostActionCreator={props.AddPostActionCreator} ChangePostActionCreator={props.ChangePostActionCreator} ch='0_1' store={props.store}/>
+  <InputMessageField addPost = {props.addPost} changePost={props.changePost} AddPostActionCreator={props.AddPostActionCreator} ChangePostActionCreator={props.ChangePostActionCreator} ch='0_1' store={props.store}
+  store_redux={props.store_redux}/>
   </div>
   </div>
   </BrowserRouter>

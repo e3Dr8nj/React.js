@@ -86,6 +86,12 @@ state.members={
     ]
 
  }
+ state.set={}
+state.set.disign='messenger'//compact/messenger
+state.set.userid='0'
+state.set.text=''
+state.set.channelid=''
+state.set.current_channel='0_0'
  state.channels={
    '0_0':{messages:[
   {id:'1',content:'hello this is my first posts here',member:state.members['0']}
@@ -105,12 +111,7 @@ state.members={
 ]} 
  }//channels
 //settings
-state.set={}
-state.set.disign='messenger'//compact/messenger
-state.set.userid='0'
-state.set.text=''
-state.set.channelid=''
-state.set.current_channel='0_0'
+
 //
  
  
