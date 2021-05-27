@@ -3,6 +3,15 @@ import ReactDom from 'react-dom'
 let Profile=(props)=>{
   let posts = props.posts.messages.map(e=>(<div>{e.content}</div>))
   let ref1 = React.createRef();
+  //__
+  let addMessageTest=()=>{
+   let new_state= props.store_redux.dispatch({type:'ADD_MESSAGE_TEST',value:'new message text'})
+   //let val = new_state.messages[0].value
+   console.log(props.store_redux)
+    // alert('test '+val)
+
+  }
+  //__
   const AddPostActionCreator=(msg)=>({type:'ADD_POST',message:msg})
   const ChangePostActionCreator=(text)=>({
     type:'CHANGE_POST',value:text
@@ -50,6 +59,7 @@ console.log(props.posts.messages[0])
   <div>My Posts</div>
   <div><textarea ref={ref1} value={props.set.text} onChange={changePost}  ></textarea></div>
   <div><button onClick={addPost}>Add new post</button></div>
+  <div><button onClick={addMessageTest}>Add new post</button></div>
   <div className='post_wripper'>{props.posts.messages[0].content}</div>
   <div className='post_wripper'>{props.posts.messages[1].content}</div>
 {posts}
